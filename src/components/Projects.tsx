@@ -9,18 +9,18 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section className="relative w-full min-h-screen bg-[#121212] py-32 px-6 md:px-12 pt-40 z-20">
+    <section className="relative w-full min-h-screen bg-[#121212] py-24 md:py-32 px-6 md:px-12 pt-32 md:pt-40 z-20">
       <div className="max-w-7xl mx-auto">
-        <h3 className="text-3xl md:text-5xl font-bold mb-16 text-white text-center">Selected Work</h3>
+        <h3 className="text-3xl md:text-5xl font-bold mb-12 md:mb-16 text-white text-center">Selected Work</h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {PROJECTS.map((proj) => (
             <a 
               key={proj.id} 
               href={proj.link}
               target={proj.link === "#" ? "_self" : "_blank"}
               rel="noopener noreferrer"
-              className="group relative h-[400px] rounded-[32px] overflow-hidden cursor-pointer backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] flex flex-col justify-end p-8 block"
+              className="group relative h-[300px] md:h-[400px] rounded-[32px] overflow-hidden cursor-pointer backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] flex flex-col justify-end p-6 md:p-8 block"
             >
               {/* Background Image */}
               <img src={proj.image} alt={proj.title} className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 group-hover:opacity-70 transition-all duration-500 group-hover:scale-105 pointer-events-none" />
@@ -30,11 +30,11 @@ export default function Projects() {
               
               <div className="relative z-20 flex items-end justify-between w-full">
                 <div>
-                  <p className="text-xs font-mono uppercase tracking-widest text-[#a1a1aa] mb-3">{proj.tag}</p>
-                  <h4 className="text-3xl md:text-4xl font-medium text-white group-hover:translate-x-3 transition-transform duration-500 will-change-transform">{proj.title}</h4>
+                  <p className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-[#a1a1aa] mb-2 md:mb-3">{proj.tag}</p>
+                  <h4 className="text-2xl md:text-4xl font-medium text-white group-hover:translate-x-3 transition-transform duration-500 will-change-transform pr-4">{proj.title}</h4>
                 </div>
-                <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center bg-white/5 group-hover:bg-white group-hover:text-black transition-colors duration-500 shrink-0">
-                  <ArrowUpRight className="w-7 h-7" />
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center bg-white/5 group-hover:bg-white group-hover:text-black transition-colors duration-500 shrink-0">
+                  <ArrowUpRight className="w-6 h-6 md:w-7 md:h-7" />
                 </div>
               </div>
             </a>
