@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ViewProvider } from '@/components/ViewContext'
-import ViewSwitcher from '@/components/ViewSwitcher'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -19,10 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body className="bg-[#121212] text-white antialiased font-sans min-h-screen">
-        <ViewProvider>
-          {children}
-          <ViewSwitcher />
-        </ViewProvider>
+        {children}
       </body>
     </html>
   )
