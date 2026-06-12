@@ -36,7 +36,7 @@ const EXPERIENCE = [
   {
     role: "MIS Consultant – Data and Analytics",
     company: "Odisha School Education Program Authority (OSEPA) – World Bank Project | Bhubaneswar",
-    dates: "Aug 2024 – Oct 2025",
+    dates: "Aug 2024 – Continuing",
     points: [
       "Developed state- and district-level analytics dashboards for the World Bank-funded STARS education program, enabling data-driven policy decisions across 30+ districts.",
       "Built end-to-end data pipelines using Python (Pandas, NumPy) and Power BI including ETL, validation, and reconciliation processes.",
