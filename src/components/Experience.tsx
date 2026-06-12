@@ -3,14 +3,33 @@ import { motion, useScroll, useTransform, useSpring, Variants } from "framer-mot
 import { useRef } from "react";
 import { Briefcase, Code2, GraduationCap, Cpu, Layers } from "lucide-react";
 
-const SUMMARY = "Python-focused Data and Generative AI Engineer with 3+ years of experience in government consulting, IT services, and analytics. Proficient in building production-ready AI agents, LLM integrations, RAG architectures, and REST APIs. Experienced in end-to-end deployment, monitoring, and orchestration of AI systems using Claude and OpenAI-compatible models. Strong background in data pipelines, analytics, and enterprise reporting.";
+const SUMMARY = "Python-focused Data and Generative AI Engineer with 3+ years of experience in government consulting, IT services, and analytics. Proficient in building production-ready AI agents, LLM integrations, RAG architectures, and REST APIs. Experienced in end-to-end deployment, monitoring, and orchestration of AI systems using Claude, NVIDIA NIM, and OpenAI-compatible models. Strong background in data pipelines, analytics, and enterprise reporting.";
 
 const SKILLS = [
-  { category: "Programming & Backend", items: ["Python", "REST APIs", "FastAPI", "Pandas", "NumPy"] },
-  { category: "Generative AI & LLMs", items: ["Claude", "OpenAI", "Prompt Engineering", "Agentic Workflows", "AI Agent Development", "MCP-based Agents", "Custom GPT/Tool Dev"] },
-  { category: "GenAI Frameworks", items: ["RAG Architecture", "Embeddings", "Tokenization", "LangChain-style", "Antigravity"] },
-  { category: "Data & Analytics", items: ["Power BI", "DAX", "Power Query", "Data Modeling", "KPI Dashboards", "Tableau"] },
-  { category: "Tools & Platforms", items: ["Git", "JIRA", "Selenium", "Windows Task Scheduler", "Excel (Advanced)"] },
+  {
+    category: "Programming & Backend",
+    items: ["Python", "Flask", "REST APIs", "FastAPI", "Pandas", "NumPy"]
+  },
+  {
+    category: "Generative AI & LLMs",
+    items: ["Claude", "NVIDIA NIM", "OpenAI", "Prompt Engineering", "Agentic Workflows", "AI Agent Development", "MCP-based Agents", "Custom GPT/Tool Dev"]
+  },
+  {
+    category: "GenAI Frameworks",
+    items: ["RAG Architecture", "pgvector", "Embeddings", "NL-to-SQL", "Tokenization", "LangChain-style", "Human-in-the-Loop"]
+  },
+  {
+    category: "Full-Stack & Deployment",
+    items: ["Supabase", "PostgreSQL", "Vercel", "Bootstrap 5", "Chart.js", "Vanilla JS", "HTML/CSS"]
+  },
+  {
+    category: "Data & Analytics",
+    items: ["Power BI", "DAX", "Power Query", "Data Modeling", "KPI Dashboards", "Tableau"]
+  },
+  {
+    category: "Tools & Platforms",
+    items: ["Git", "JIRA", "Selenium", "Windows Task Scheduler", "Excel (Advanced)"]
+  },
 ];
 
 const EXPERIENCE = [
@@ -50,18 +69,20 @@ const EXPERIENCE = [
 ];
 
 const AI_EXPERIENCE = [
+  "Built Solace — a production-grade AI support platform featuring LLM-based ticket classification (NVIDIA NIM), RAG-powered response drafting, natural language to SQL analytics, and a document-grounded onboarding assistant. Deployed on Vercel with Supabase pgvector.",
   "Designed and deployed autonomous AI agents using Antigravity integrated with Claude LLM, supporting task planning, tool invocation, memory handling, and retry logic.",
   "Developed FastAPI-based micro services to expose AI agents as reusable, production-ready REST APIs.",
   "Implemented prompt optimization, safety constraints, and fallback mechanisms to ensure stable real-world agent behavior.",
   "Created no-code and low-code AI workflows for content automation, research generation, and operations use cases.",
-  "Built AI writing style replication systems using Content DNA Analysis for personalized content generation."
+  "Built AI writing style replication systems using Content DNA Analysis for personalized content generation.",
 ];
 
 const PROJECTS = [
+  "Solace AI Support Platform – Flask + NVIDIA NIM + Supabase. AI ticket routing, NL-to-SQL ops dashboard, RAG onboarding assistant. Live at ai-ticket-router.vercel.app",
   "Automated UDISE+ Daily Data Extraction and Reporting System – Python-based scheduler automating daily data.",
   "Selenium-Driven District-Level Data Automation – Web scraping and automation pipeline.",
   "Automated Excel to Power BI Pipeline for State Education Data – End-to-end automated data ingestion.",
-  "Autonomous AI Research and Content Generation Agent – LLM-powered agent for automated research summarization."
+  "Autonomous AI Research and Content Generation Agent – LLM-powered agent for automated research summarization.",
 ];
 
 const EDUCATION = [
@@ -88,11 +109,11 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.98 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.8, ease: "easeOut" } 
+    transition: { duration: 0.8, ease: "easeOut" }
   }
 };
 
@@ -128,7 +149,7 @@ export default function Experience() {
 
   return (
     <section ref={containerRef} className="relative w-full bg-[#0a0a0a] text-white py-24 md:py-32 px-6 md:px-12 z-20 overflow-hidden">
-      
+
       {/* Background graphic elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-900/10 blur-[120px]" />
@@ -136,16 +157,16 @@ export default function Experience() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-12 md:gap-16">
-        
-        {/* Sticky Left Sidebar (Navigation/Title) */}
+
+        {/* Sticky Left Sidebar */}
         <div className="md:w-1/3 shrink-0">
-          <motion.div 
+          <motion.div
             style={{ opacity: headerOpacity, y: headerY }}
             className="sticky top-24 md:top-40"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 tracking-tight">Experience <br/><span className="text-gray-500 font-light">& Expertise</span></h2>
             <p className="text-gray-400 leading-relaxed mb-6 md:mb-8 border-l-2 border-white/20 pl-4">{SUMMARY}</p>
-            
+
             <div className="hidden md:flex flex-col gap-4 text-sm font-mono text-gray-500 uppercase tracking-widest mt-12">
               <span className="flex items-center gap-3"><Code2 size={16} /> Technical Skills</span>
               <span className="flex items-center gap-3"><Briefcase size={16} /> Professional Exp</span>
@@ -157,7 +178,7 @@ export default function Experience() {
 
         {/* Scrolling Right Content */}
         <div className="md:w-2/3 flex flex-col gap-24 md:gap-32 pb-24 md:pb-32 pt-8">
-          
+
           {/* Section: Technical Skills */}
           <FadeInContainer>
             <motion.div variants={itemVariants} className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
@@ -186,19 +207,18 @@ export default function Experience() {
               <div className="p-2 md:p-3 rounded-xl bg-white/5 border border-white/10"><Briefcase className="text-purple-400 w-5 h-5 md:w-6 md:h-6" /></div>
               <h3 className="text-2xl md:text-3xl font-medium">Professional Experience</h3>
             </motion.div>
-            
+
             <motion.div variants={itemVariants} className="relative border-l border-white/10 pl-6 md:pl-12 flex flex-col gap-12 md:gap-16">
               {/* Animated Timeline Line */}
-              <motion.div 
+              <motion.div
                 className="absolute top-0 left-0 w-[1px] bg-gradient-to-b from-purple-500 to-blue-500 origin-top"
                 style={{ scaleY: progressHeight }}
               />
 
               {EXPERIENCE.map((exp, i) => (
                 <div key={i} className="relative group transition-all duration-300 hover:translate-x-2">
-                  {/* Timeline Dot */}
                   <div className="absolute -left-[29px] md:-left-[53px] top-1.5 w-3 h-3 rounded-full bg-[#0a0a0a] border-2 border-gray-400 z-10 group-hover:bg-purple-500 group-hover:border-purple-500 transition-colors duration-300 shadow-[0_0_10px_rgba(168,85,247,0)] group-hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
-                  
+
                   <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2 gap-1 md:gap-2">
                     <h4 className="text-xl md:text-2xl font-semibold text-white">{exp.role}</h4>
                     <span className="text-gray-400 font-mono text-xs md:text-sm shrink-0 whitespace-nowrap bg-white/5 px-2.5 py-1 rounded-full">{exp.dates}</span>
@@ -243,8 +263,8 @@ export default function Experience() {
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {PROJECTS.map((proj, i) => (
-                <motion.div variants={itemVariants} key={i} className="p-5 md:p-6 rounded-[24px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-orange-500/30 transition-all duration-300 flex items-start gap-3 md:gap-4 hover:-translate-y-1">
-                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 text-gray-400 text-xs md:text-sm group-hover:bg-orange-500 group-hover:text-white transition-colors">{i+1}</div>
+                <motion.div variants={itemVariants} key={i} className={`p-5 md:p-6 rounded-[24px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-orange-500/30 transition-all duration-300 flex items-start gap-3 md:gap-4 hover:-translate-y-1 ${i === 0 ? 'sm:col-span-2 border-purple-500/20 hover:border-purple-500/40' : ''}`}>
+                  <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 border text-xs md:text-sm ${i === 0 ? 'bg-purple-500/10 border-purple-500/30 text-purple-300' : 'bg-white/5 border-white/10 text-gray-400'}`}>{i + 1}</div>
                   <p className="text-xs md:text-sm text-gray-300 leading-relaxed">{proj}</p>
                 </motion.div>
               ))}
